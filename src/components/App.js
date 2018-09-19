@@ -71,7 +71,7 @@ class App extends Component {
         <hr className="divider" />
 
         <div className="footer-container">
-          <a href="#" id="privacy-policy-link" className="footer-link" onClick="showModal">Privacy Policy</a>
+          <a href="#" id="privacy-policy-link" className="footer-link" >Privacy Policy</a>
           <a href="https://github.com/abandohess/twump-tweet-server" className="footer-link">Github</a>
         </div>
 

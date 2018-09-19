@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button, Header, Modal } from 'semantic-ui-react';
+import { Button, Modal } from 'semantic-ui-react';
 
 const PrivacyModal = () => (
   <Modal trigger={<Button id="privacy-policy" className="invisible">Privacy Policy</Button>} >
-    <Modal.Header>Gwumpy Twumpy Privacy Policy</Modal.Header>
+    <Modal.Header className="modal-header">Gwumpy Twumpy Privacy Policy</Modal.Header>
     <Modal.Content>
       <Modal.Description>
-        <Header>We take your privacy just as seriously as Trump takes the presidency.</Header>
+        <p className="modal-text">We take your privacy just as seriously as Trump takes the presidency.</p>
       </Modal.Description>
     </Modal.Content>
   </Modal>

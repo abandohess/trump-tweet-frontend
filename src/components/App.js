@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
+import PrivacyModal from './PrivacyModal';
 
 // export const ROOT_URL = 'https://cs52-blog-andy.herokuapp.com/api';
-export const ROOT_URL = 'http://localhost:9090/api';
+export const ROOT_URL = 'https://gwumpy-twumpy.herokuapp.com/api';
 
 function isValidPhoneNumber(phoneNumber) {
   const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
@@ -23,6 +24,7 @@ class App extends Component {
     };
     this.onPhoneNumberChange = this.onPhoneNumberChange.bind(this);
     this.onSubmitPhoneNumber = this.onSubmitPhoneNumber.bind(this);
+    // this.showModal = this.showModal.bind(this);
   }
 
   onPhoneNumberChange(event) {
@@ -44,9 +46,14 @@ class App extends Component {
     });
   }
 
+  // showModal() {
+  //   document.getElementById('privacy-policy').click();
+  // }
+
   render() {
     return (
       <div>
+        <PrivacyModal className="top-aligned" />
         <div className="header-background">
           <img src={require('../img/trump-icon.jpg')} alt="Trump" className="center-trump" />
           <p className="trump-subtitle">Gwumpy Twumpy</p>
@@ -61,6 +68,13 @@ class App extends Component {
           Sign Up
           </Button>
         </div>
+        <hr className="divider" />
+
+        <div className="footer-container">
+          <a href="#" id="privacy-policy-link" className="footer-link" onClick="showModal">Privacy Policy</a>
+          <a href="https://github.com/abandohess/twump-tweet-server" className="footer-link">Github</a>
+        </div>
+
       </div>
     );
   }

@@ -7,7 +7,7 @@
     "start": "NODE_ENV=development webpack-serve ./webpack.config.js",
     "build": "yarn clean; NODE_ENV=production webpack --colors",
     "clean": "rimraf dist",
-    "deploy": "yarn build; surge -p dist -d andy-cs52-redux-blog.surge.sh; yarn clean"
+    "deploy": "yarn build; surge -p dist -d gwumpytwumpy.surge.sh; yarn clean"
   },
   "devDependencies": {
     "autoprefixer": "^8.2.0",
@@ -50,6 +50,7 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "semantic-ui-react": "^0.82.5"
   }
 }

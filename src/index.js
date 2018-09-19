@@ -7,3 +7,7 @@ ReactDOM.render(
   <App />
   , document.getElementById('main'),
 );
+
+$('#privacy-policy-link').on('click', () => {
+  document.getElementById('privacy-policy').click();
+});

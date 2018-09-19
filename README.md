@@ -1,7 +1,5 @@
-# CS52 Redux Blog
+# Gwumpy Twumpy Frontend
 
-Anders Bando-Hess - April 2018
+Anders Bando-Hess and Chris Bertasi - September 2018
 
-I built a blog platform with React+Redux+React-Router. It follows the Create+Update+Delete (CRUD) style and I unused an API server hosted at: cs52-blog.herokuapp.com.
-
-The hardest part to implement was the Post container. I ended up passing a callback to fetchPost to set the Post's state only after the Post object had been fetched from the herokuapp server.
+Front end to sign users up for Gwumpy Twumpy service. When Trump tweets a grumpy message, all users will be notified that Twump is gwumpy.

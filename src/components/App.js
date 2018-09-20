@@ -49,7 +49,7 @@ class App extends Component {
 
   onDeletePhoneNumber() {
     if (!isValidPhoneNumber(this.state.phoneNumber)) return;
-    axios.delete(`${ROOT_URL}/users`, { phoneNumber: this.state.phoneNumber.replace(/\D/g, '') }).then((response) => {
+    axios.delete(`${ROOT_URL}/users`, { params: { phoneNumber: this.state.phoneNumber.replace(/\D/g, '') } }).then((response) => {
       console.log(response);
       if (response.data === 'Successfully deleted phone number\n') {
         alert('Successfully deleted phone number');

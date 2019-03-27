@@ -3,17 +3,19 @@ import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import PrivacyModal from './PrivacyModal';
 
-// export const ROOT_URL = 'https://cs52-blog-andy.herokuapp.com/api';
-export const ROOT_URL = 'https://gwumpy-twumpy.herokuapp.com/api';
+// export const ROOT_URL = 'http://localhost:9090/api';
+export const ROOT_URL = 'https://gwumpy-twumpy-backend.herokuapp.com/api';
 
 function isValidPhoneNumber(phoneNumber) {
   const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
   if ((phoneNumber.match(phoneno))) {
     return true;
+  } if (phoneNumber.length !== 10) {
+    alert('Your phone number must have 10 digits.');
   } else {
     alert('invalid phone number');
-    return false;
   }
+  return false;
 }
 
 class App extends Component {
@@ -36,10 +38,10 @@ class App extends Component {
     if (!isValidPhoneNumber(this.state.phoneNumber)) return;
     axios.post(`${ROOT_URL}/users`, { phoneNumber: this.state.phoneNumber.replace(/\D/g, '') }).then((response) => {
       console.log(response);
-      if (response.data === 'User already exists\n') {
+      if (response.status === 201) {
         alert('User already exists');
       } else {
-        alert('Successfully signed up phone number, ', this.state.phoneNumber);
+        alert('Successfully signed up phone number', this.state.phoneNumber);
       }
     }).catch((error) => {
       console.log(error);
@@ -49,9 +51,9 @@ class App extends Component {
 
   onDeletePhoneNumber() {
     if (!isValidPhoneNumber(this.state.phoneNumber)) return;
-    axios.delete(`${ROOT_URL}/users`, { params: { phoneNumber: this.state.phoneNumber.replace(/\D/g, '') } }).then((response) => {
+    axios.delete(`${ROOT_URL}/users`, { data: { phoneNumber: this.state.phoneNumber.replace(/\D/g, '') } }).then((response) => {
       console.log(response);
-      if (response.data === 'Successfully deleted phone number\n') {
+      if (response.status === 200) {
         alert('Successfully deleted phone number');
       } else {
         alert('Failed to delete phone number, ', this.state.phoneNumber);

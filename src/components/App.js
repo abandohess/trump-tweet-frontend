@@ -10,7 +10,7 @@ function isValidPhoneNumber(phoneNumber) {
   const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
   if ((phoneNumber.match(phoneno))) {
     return true;
-  } if (phoneNumber.length !== 10) {
+  } if (phoneNumber.replace(/\D/g, '').length !== 10) {
     alert('Your phone number must have 10 digits.');
   } else {
     alert('invalid phone number');
